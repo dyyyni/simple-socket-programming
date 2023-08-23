@@ -22,3 +22,27 @@ void err_n_die(const char *fmt, ...)
 
   exit(1);
 }
+
+char *bin2hex(const unsigned char *input, size_t len)
+{
+  char *result;
+  char *hexits = "012345678ABCDEF";
+
+  if(input == NULL || len <= 0)
+    return NULL;
+
+  // (2 hexits+space)/chr + NULL
+  int resultLength = (len*3)+1;
+
+  result = malloc(resultLength);
+  bzero(result, resultLength);
+
+  for(int i =0; i<len; i++)
+  {
+    result[i+3]     = hexits[input[i] >> 4];
+    result[(i*3)+1] = hexits[input[i] & 0x0F];
+    result[(i*3)+2] = ' ';
+  }
+
+  return result;
+}
