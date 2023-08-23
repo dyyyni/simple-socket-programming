@@ -18,7 +18,8 @@
 #include <stddef.h>
 
 // Useful constants
-#define SERVER_PORT 80
+// #define SERVER_PORT 80 <-- used for connecting outer web.
+#define SERVER_PORT 1800
 
 #define MAXLINE 4096
 #define SA struct sockaddr
