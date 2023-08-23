@@ -3,10 +3,10 @@ BUILD_DIR := build
 CC := gcc
 CFLAGS := -g -Iinclude -Wall
 
-SRC_FILES1 := $(wildcard src/tcpClient.c)
+SRC_FILES1 := $(wildcard src/tcpClient.c src/common.c)
 OBJ_FILES1 := $(patsubst src/%.c,$(BUILD_DIR)/%.o,$(SRC_FILES1))
 
-SRC_FILES2 := $(wildcard src/tcpServer.c)
+SRC_FILES2 := $(wildcard src/tcpServer.c src/common.c)
 OBJ_FILES2 := $(patsubst src/%.c,$(BUILD_DIR)/%.o,$(SRC_FILES2))
 
 TARGET1 := $(BUILD_DIR)/tcpc
